@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background-color: #f4f6fb;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 80px;
+}
+
+.Container{
+    width: 460px;
+    background: #ffffff;
+    padding: 25px 20px;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/*  for the Heading */
+
+h1{
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/*  to the Input Box */
+
+.input-box{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+
+}
+
+input{
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    outline: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+input:focus{
+    border-color: #667eea;
+     box-shadow: 0 0 6px rgba(102,126,234,0.5);
+}
+
+/* for Add Button */
+
+button{
+    padding: 12px 18px;
+    background: #4a6cf7;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+
+}
+
+button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(102, 234, 219, 0.4);
+}
+
+.ul{
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+
+/* att of Task Item */
+
+li{
+    display: flex;
+    list-style: none;
+    padding: 10px 12px;
+    margin: 8px 0;
+    background: #f9fafc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    word-wrap: break-word;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+li:hover{
+    background: #e9ecff;
+}
