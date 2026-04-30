@@ -5,99 +5,215 @@
     font-family: "Segoe UI", Arial, sans-serif;
 }
 
+:root{
+    color-scheme: light;
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --text: #2c3e50;
+    --muted: #6d7c98;
+    --primary: #4a6cf7;
+    --primary-strong: #3d5dee;
+    --card: #f9fafc;
+    --card-hover: #e9ecff;
+    --border: #dcdcdc;
+    --shadow: rgba(0, 0, 0, 0.18);
+    --button-hover: rgba(102, 126, 234, 0.35);
+}
+
+body.dark-theme{
+    color-scheme: dark;
+    --bg: #10151f;
+    --surface: #17202c;
+    --text: #ebeff8;
+    --muted: #8d9cb7;
+    --primary: #7d9cff;
+    --primary-strong: #6b87ff;
+    --card: #1f2939;
+    --card-hover: #263049;
+    --border: #2d3b57;
+    --shadow: rgba(0, 0, 0, 0.55);
+    --button-hover: rgba(125, 156, 255, 0.25);
+}
+
 body{
     min-height: 100vh;
-    background-color: #f4f6fb;
+    background-color: var(--bg);
+    color: var(--text);
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 80px;
+    padding: 80px 20px;
 }
 
 .Container{
-    width: 460px;
-    background: #ffffff;
-    padding: 25px 20px;
-    border-radius: 14px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    width: min(460px, 100%);
+    background: var(--surface);
+    padding: 25px 22px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px var(--shadow);
 }
 
-/*  for the Heading */
+.app-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
 
 h1{
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-    color: #2c3e50;
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    color: var(--text);
 }
 
-/*  to the Input Box */
+.theme-toggle{
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: rgba(255,255,255,0.12);
+    color: var(--text);
+    font-weight: 600;
+}
+
+.theme-toggle:hover{
+    transform: translateY(-1px);
+    border-color: var(--border);
+    background: rgba(255,255,255,0.18);
+}
 
 .input-box{
     display: flex;
     gap: 10px;
-    margin-bottom: 15px;
-
+    margin-bottom: 18px;
 }
 
 input{
     flex: 1;
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid #dcdcdc;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
     outline: none;
     font-size: 1rem;
-    transition: 0.3s;
+    transition: 0.25s ease;
+}
+
+input::placeholder{
+    color: var(--muted);
 }
 
 input:focus{
-    border-color: #667eea;
-     box-shadow: 0 0 6px rgba(102,126,234,0.5);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(100, 115, 255, 0.2);
 }
 
-/* for Add Button */
-
 button{
-    padding: 12px 18px;
-    background: #4a6cf7;
+    padding: 14px 18px;
+    background: var(--primary);
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-
+    font-weight: 700;
+    transition: 0.25s ease;
 }
 
 button:hover{
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(102, 234, 219, 0.4);
+    transform: scale(1.03);
+    box-shadow: 0 8px 18px var(--button-hover);
 }
 
-.ul{
+#taskList{
     list-style: none;
     padding: 0;
-    margin-top: 10px;
+    margin: 0;
 }
 
-
-/* att of Task Item */
-
-li{
-    display: flex;
-    list-style: none;
-    padding: 10px 12px;
-    margin: 8px 0;
-    background: #f9fafc;
+.task-item{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    word-wrap: break-word;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    transition: 0.3s;
+    gap: 12px;
+}
+
+li{
+    padding: 14px 16px;
+    margin: 10px 0;
+    background: var(--card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    transition: background 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
 }
 
 li:hover{
-    background: #e9ecff;
+    background: var(--card-hover);
+    transform: translateY(-1px);
 }
+
+.task-label{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 auto;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.task-checkbox{
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}
+
+.task-label span{
+    line-height: 1.4;
+    word-break: break-word;
+    min-width: 0;
+}
+
+.completed{
+    opacity: 0.8;
+    border-color: rgba(100, 115, 255, 0.18);
+}
+
+.completed .task-label span{
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+.remove-btn{
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    min-width: 86px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.remove-btn:hover{
+    background: rgba(255,255,255,0.15);
+}
+
+@media (max-width: 520px) {
+    .Container{
+        padding: 20px;
+    }
+
+    .input-box{
+        flex-direction: column;
+    }
+
+    button,
+    .theme-toggle{
+        width: 100%;
+    }
+}
+
