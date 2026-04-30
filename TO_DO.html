@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./TO_DO.css">
-
-    <title>To - do List</title>
+    <title>To-do List</title>
 </head>
 <body>
-      <div class="Container">
-        <h1>To - do List </h1>
+    <div class="Container">
+        <header class="app-header">
+            <h1>To-do List</h1>
+            <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
+        </header>
 
         <div class="input-box">
-            <input type="text" id="taskInput" placeholder="Enter the Task">
-             <button onclick="addTask()">Add</button>
+            <input type="text" id="taskInput" placeholder="Enter a task">
+            <button id="addBtn" type="button">Add</button>
+        </div>
 
-         </div>
-
-         <ul id="taskList"></ul>
-
+        <ul id="taskList"></ul>
     </div>
 
     <script src="./TO_DO.js"></script>
-
 </body>
 </html>
